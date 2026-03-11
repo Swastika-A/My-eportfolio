@@ -1,15 +1,15 @@
 package com.eportfolio;
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executors;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
 
 public class App {
 
@@ -20,7 +20,8 @@ public class App {
         server.createContext("/", new ResourceHandler("/public/index.html", "text/html; charset=utf-8"));
         server.createContext("/styles.css", new ResourceHandler("/public/styles.css", "text/css; charset=utf-8"));
         server.createContext("/profile-photo.svg", new ResourceHandler("/public/profile-photo.svg", "image/svg+xml"));
-        server.createContext("/cv", new DownloadHandler("/public/cv.txt", "text/plain; charset=utf-8", "YourName-CV.txt"));
+        server.createContext("/my-photo.jpg", new ResourceHandler("/public/my-photo.jpg", "image/jpeg"));
+        server.createContext("/cv", new DownloadHandler("/public/cv.pdf", "application/pdf", "Astuti-Swastika-CV.pdf"));
 
         server.setExecutor(Executors.newCachedThreadPool());
         server.start();
