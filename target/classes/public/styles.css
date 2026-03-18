@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
-    --bg: #fff7fd;
-    --text: #2b1230;
-    --accent: #e33fa9;
-    --accent-dark: #7a2bd4;
-    --panel: rgba(255, 255, 255, 0.9);
-    --line: rgba(168, 80, 190, 0.28);
-    --shadow: 0 16px 36px rgba(166, 72, 190, 0.2);
+    --bg: #fff9ff;
+    --text: #21102f;
+    --accent: #eb2ca0;
+    --accent-dark: #6f23ca;
+    --panel: rgba(255, 255, 255, 0.92);
+    --line: rgba(132, 66, 194, 0.32);
+    --shadow: 0 18px 38px rgba(111, 35, 202, 0.28);
+    --btn-grad: linear-gradient(132deg, #ff2e9f 0%, #d93ede 48%, #752ed8 100%);
+    --btn-grad-hover: linear-gradient(132deg, #ff49ac 0%, #e251e5 48%, #8240df 100%);
 }
 
 * {
@@ -19,12 +21,13 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     color: var(--text);
     background:
-        radial-gradient(950px 500px at 0% 0%, rgba(227, 63, 169, 0.26), transparent 70%),
-        radial-gradient(900px 540px at 100% 100%, rgba(122, 43, 212, 0.24), transparent 65%),
-        radial-gradient(700px 380px at 80% 20%, rgba(255, 176, 228, 0.35), transparent 70%),
-        var(--bg);
+        radial-gradient(980px 520px at -5% -10%, rgba(235, 44, 160, 0.36), transparent 72%),
+        radial-gradient(900px 560px at 100% 100%, rgba(111, 35, 202, 0.34), transparent 66%),
+        radial-gradient(720px 420px at 75% 14%, rgba(255, 174, 228, 0.5), transparent 72%),
+        linear-gradient(160deg, #fff9ff 0%, #fff4fc 45%, #fff7ff 100%);
     min-height: 100vh;
     padding: 1.25rem;
+    background-attachment: fixed;
 }
 
 .topbar {
@@ -32,7 +35,7 @@ body {
     top: 0;
     z-index: 10;
     backdrop-filter: blur(8px);
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(255, 233, 250, 0.8));
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.85), rgba(255, 236, 251, 0.9));
     border: 1px solid var(--line);
     border-radius: 14px;
     max-width: 1000px;
@@ -41,7 +44,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 8px 24px rgba(166, 72, 190, 0.16);
+    box-shadow: 0 10px 26px rgba(129, 58, 187, 0.18);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.topbar:hover {
+    border-color: rgba(148, 88, 194, 0.42);
+    box-shadow: 0 14px 28px rgba(129, 58, 187, 0.24);
 }
 
 .brand {
@@ -58,15 +67,20 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: var(--text);
+    color: #4f1b8e;
     font-size: 0.95rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0.24rem 0.5rem;
+    background: linear-gradient(135deg, rgba(255, 234, 250, 0.92), rgba(241, 225, 255, 0.92));
+    border: 1px solid rgba(132, 66, 194, 0.28);
     border-radius: 6px;
+    box-shadow: 0 6px 14px rgba(111, 35, 202, 0.12);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 nav a:hover {
-    background: rgba(227, 63, 169, 0.14);
-    color: #5f1fa8;
+    background: linear-gradient(135deg, rgba(255, 85, 181, 0.28), rgba(139, 67, 224, 0.26));
+    color: #3f116f;
+    transform: translateY(-1px);
 }
 
 main {
@@ -106,6 +120,8 @@ h1 {
     max-width: 14ch;
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
+    color: #3a1551;
+    text-shadow: 0 2px 12px rgba(148, 88, 194, 0.12);
 }
 
 .intro {
@@ -117,14 +133,31 @@ h1 {
 .btn {
     display: inline-block;
     margin-top: 1.3rem;
-    background: linear-gradient(130deg, #ff56b8, #7a2bd4);
+    background: var(--btn-grad);
     color: #fff;
     text-decoration: none;
     font-weight: 700;
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 999px;
-    padding: 0.8rem 1.3rem;
+    padding: 0.82rem 1.35rem;
+    position: relative;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:visited {
+    color: #fff;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.4) 44%, transparent 70%);
+    transform: translateX(-130%);
+    transition: transform 0.6s ease;
 }
 
 .hero-actions {
@@ -135,25 +168,34 @@ h1 {
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 18px 34px rgba(122, 43, 212, 0.3);
+    background: var(--btn-grad-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 22px 36px rgba(111, 35, 202, 0.4);
+}
+
+.btn:hover::before {
+    transform: translateX(130%);
 }
 
 .btn-ghost {
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(122, 43, 212, 0.45);
-    color: var(--accent-dark);
-    box-shadow: none;
+    background: linear-gradient(132deg, #7f2fda 0%, #b13be0 55%, #f03ca9 100%);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(111, 35, 202, 0.24);
 }
 
 .btn-ghost:hover {
-    box-shadow: 0 10px 22px rgba(122, 43, 212, 0.2);
+    box-shadow: 0 16px 28px rgba(111, 35, 202, 0.3);
+}
+
+.btn-ghost:visited {
+    color: #fff;
 }
 
 .hero-photo-card {
     margin: 0;
     border: 1px solid var(--line);
-    background: linear-gradient(155deg, rgba(255, 255, 255, 0.9), rgba(255, 227, 248, 0.75));
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(255, 227, 248, 0.8));
     border-radius: 18px;
     padding: 0.7rem;
     box-shadow: 0 14px 28px rgba(166, 72, 190, 0.22);
@@ -180,20 +222,22 @@ h1 {
     background: var(--panel);
     border-radius: 18px;
     padding: 1.2rem;
-    box-shadow: 0 12px 28px rgba(166, 72, 190, 0.14);
+    box-shadow: 0 12px 28px rgba(129, 58, 187, 0.16);
     animation: rise 0.8s ease;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(4px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .panel:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 30px rgba(166, 72, 190, 0.2);
+    border-color: rgba(148, 88, 194, 0.44);
+    box-shadow: 0 16px 30px rgba(129, 58, 187, 0.22);
 }
 
 h2 {
     margin: 0 0 0.7rem;
     font-size: 1.35rem;
-    color: #7a2bd4;
+    color: #6b22c4;
 }
 
 .grid {
@@ -206,13 +250,14 @@ h2 {
     border: 1px solid var(--line);
     border-radius: 14px;
     padding: 1rem;
-    background: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(253, 235, 251, 0.8));
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(255, 238, 252, 0.88));
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(166, 72, 190, 0.18);
+    border-color: rgba(148, 88, 194, 0.45);
+    box-shadow: 0 12px 24px rgba(129, 58, 187, 0.2);
 }
 
 .card h3 {
@@ -238,7 +283,8 @@ h2 {
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 0.42rem 0.72rem;
-    background: linear-gradient(120deg, #ffffff, #ffe9f8);
+    background: linear-gradient(120deg, #ffffff, #ffeefd);
+    box-shadow: 0 4px 10px rgba(129, 58, 187, 0.08);
 }
 
 .experience-list {
@@ -251,13 +297,23 @@ h2 {
     border: 1px solid var(--line);
     border-radius: 14px;
     padding: 1rem;
-    background: linear-gradient(150deg, rgba(255, 255, 255, 0.88), rgba(248, 232, 255, 0.78));
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.92), rgba(246, 231, 255, 0.8));
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .experience-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(166, 72, 190, 0.16);
+    border-color: rgba(148, 88, 194, 0.42);
+    box-shadow: 0 12px 24px rgba(129, 58, 187, 0.18);
+}
+
+#contact a {
+    color: #6b22c4;
+    text-decoration-color: rgba(107, 34, 196, 0.5);
+}
+
+#contact a:hover {
+    color: #df2e9a;
 }
 
 .experience-item h3 {
@@ -282,7 +338,7 @@ h2 {
 .glow-a {
     width: 180px;
     height: 180px;
-    background: rgba(255, 86, 184, 0.28);
+    background: rgba(255, 60, 169, 0.42);
     left: -50px;
     top: 260px;
 }
@@ -290,7 +346,7 @@ h2 {
 .glow-b {
     width: 220px;
     height: 220px;
-    background: rgba(122, 43, 212, 0.26);
+    background: rgba(111, 35, 202, 0.38);
     right: -60px;
     top: 120px;
 }
