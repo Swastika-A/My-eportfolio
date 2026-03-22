@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
-  <rect width="100%" height="100%" fill="#f8edff" />
-  <rect x="40" y="40" width="720" height="220" rx="14" fill="#fff" stroke="#e6c7f2" stroke-width="4" />
-  <rect x="40" y="280" width="220" height="140" rx="8" fill="#fff" stroke="#e6c7f2" stroke-width="3" />
-  <rect x="280" y="280" width="220" height="140" rx="8" fill="#fff" stroke="#e6c7f2" stroke-width="3" />
-  <rect x="520" y="280" width="220" height="140" rx="8" fill="#fff" stroke="#e6c7f2" stroke-width="3" />
-  <text x="400" y="150" font-family="Space Grotesk, sans-serif" font-size="36" text-anchor="middle" fill="#6b22c4">My E-Portfolio</text>
-</svg>
