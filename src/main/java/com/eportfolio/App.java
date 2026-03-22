@@ -19,8 +19,11 @@ public class App {
 
         server.createContext("/", new ResourceHandler("/public/index.html", "text/html; charset=utf-8"));
         server.createContext("/styles.css", new ResourceHandler("/public/styles.css", "text/css; charset=utf-8"));
-        server.createContext("/profile-photo.svg", new ResourceHandler("/public/profile-photo.svg", "image/svg+xml"));
+        server.createContext("/profile-photo.jpg", new ResourceHandler("/public/profile-photo.jpg", "image/jpeg"));
         server.createContext("/my-photo.jpg", new ResourceHandler("/public/my-photo.jpg", "image/jpeg"));
+        server.createContext("/images/bank.png", new ResourceHandler("/public/images/bank.png", "image/png"));
+        server.createContext("/images/leave-system.png", new ResourceHandler("/public/images/leave-system.png", "image/png"));
+        server.createContext("/images/eportfolio.png", new ResourceHandler("/public/images/eportfolio.png", "image/png"));
         server.createContext("/cv", new DownloadHandler("/public/cv.pdf", "application/pdf", "Astuti-Swastika-CV.pdf"));
 
         server.setExecutor(Executors.newCachedThreadPool());
