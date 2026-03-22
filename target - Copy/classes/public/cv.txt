@@ -1,0 +1,27 @@
+Your Name
+Java Developer
+Email: yourname@example.com
+GitHub: github.com/yourname
+LinkedIn: linkedin.com/in/yourname
+
+Profile
+Developer focused on Java backend systems and responsive front-end implementation.
+
+Skills
+- Java
+- Spring Boot
+- SQL
+- HTML
+- CSS
+- Git
+
+Experience
+- Add your internship, freelance, or full-time experience here.
+
+Projects
+- Student Portal API
+- Task Manager
+- Portfolio Dashboard
+
+Education
+- Add your degree, school, and graduation date here.
