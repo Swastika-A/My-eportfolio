@@ -1,3 +1,7 @@
 [build]
-  command = "mvn -B package"
-  publish = "target/classes/public"
+  publish = "src/main/resources/public"
+
+[[redirects]]
+  from = "/cv"
+  to = "/cv.pdf"
+  status = 301
