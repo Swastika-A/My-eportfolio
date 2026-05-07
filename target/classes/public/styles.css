@@ -83,6 +83,30 @@ nav a:hover {
     transform: translateY(-1px);
 }
 
+/* Jelly-like animation effect for navigation buttons */
+nav a {
+    transition: transform 0.3s ease;
+}
+
+@keyframes jelly-nav {
+    0%, 100% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(1.1, 0.9);
+    }
+    50% {
+        transform: scale(0.9, 1.1);
+    }
+    75% {
+        transform: scale(1.05, 0.95);
+    }
+}
+
+nav a:hover {
+    animation: jelly-nav 0.6s ease;
+}
+
 main {
     max-width: 1000px;
     margin: 1rem auto 2rem;
