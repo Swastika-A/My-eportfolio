@@ -107,6 +107,23 @@ nav a:hover {
     animation: jelly-nav 0.6s ease;
 }
 
+/* Cloudy floating effect for navigation buttons */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+nav a {
+    animation: float 4s ease-in-out infinite;
+}
+
 main {
     max-width: 1000px;
     margin: 1rem auto 2rem;
@@ -232,6 +249,7 @@ h1 {
     background: transparent;
     border-radius: 10px;
     display: block;
+    animation: float 4s ease-in-out infinite;
 }
 
 .hero-photo-card figcaption {
@@ -304,6 +322,28 @@ h2 {
     margin-bottom: 0.65rem;
     border: 1px solid rgba(132, 66, 194, 0.08);
     transition: transform 0.25s ease;
+    animation: wobble 1.5s infinite;
+}
+
+@keyframes wobble {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(-3deg);
+    }
+    30% {
+        transform: rotate(3deg);
+    }
+    45% {
+        transform: rotate(-2deg);
+    }
+    60% {
+        transform: rotate(2deg);
+    }
+    75% {
+        transform: rotate(-1deg);
+    }
 }
 
 @media (max-width: 850px) {
@@ -465,4 +505,35 @@ h2 {
         grid-template-columns: 1fr;
     }
 
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .hero-photo {
+        height: 300px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
 }
