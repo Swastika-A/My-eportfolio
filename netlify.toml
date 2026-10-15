@@ -1,3 +1,12 @@
+# The site is plain static files, so Netlify publishes them directly.
+# Netlify's build image has no Maven, so there is no Java build step here;
+# the Java server (App.java) is only used for running the site locally.
 [build]
-  command = "mvn -B package"
-  publish = "target/classes/public"
+  command = "echo 'Static site: publishing src/main/resources/public as-is'"
+  publish = "src/main/resources/public"
+
+# Locally, App.java serves the CV at /cv. On Netlify, send /cv to the PDF.
+[[redirects]]
+  from = "/cv"
+  to = "/cv.pdf"
+  status = 301
