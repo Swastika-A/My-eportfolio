@@ -3,118 +3,538 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My ePortfolio</title>
+    <title>Astuti Swastika | Software Developer</title>
+    <meta name="description" content="Astuti Swastika is a software developer interested in backend development, databases and responsive web applications. View projects, experience, skills and contact details." />
+    <meta name="theme-color" content="#07090d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Astuti Swastika | Software Developer" />
+    <meta property="og:description" content="Software developer building practical, reliable digital solutions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" />
     <link rel="stylesheet" href="/styles.css" />
+    <script>
+        // Decide before the first paint whether to show the greeting splash, so the page never flashes first.
+        // It plays on every page load, but never for people who prefer reduced motion.
+        document.documentElement.classList.add('js');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('splash-on');
+        }
+    </script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
-    <div class="glow glow-a"></div>
-    <div class="glow glow-b"></div>
+    <div class="splash" id="splash" aria-hidden="true">
+        <p class="splash-word is-in" lang="en">Hello</p>
+        <div class="splash-progress"></div>
+        <p class="splash-hint">Tap or press any key to skip</p>
+    </div>
 
-    <header class="topbar">
-        <div class="brand">My ePortfolio</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#top" aria-label="Astuti Swastika, back to top">
+                <span class="brand-mark" aria-hidden="true">AS</span>
+                <span class="brand-name">Astuti Swastika</span>
+            </a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#what-i-do">What I Do</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-layout">
-                <figure class="hero-photo-card">
-                    <img class="hero-photo" src="/my-photo.jpg" alt="Astuti Swastika profile photo" />
-                    <figcaption>Astuti Swastika</figcaption>
-                </figure>
-                <div class="hero-copy">
-                    <h4 class="tag">Software Engineer</h4>
-                    <h1>Inorder to break limitations, one has to cross the extents of imagination.</h1>
-                    <p class="intro">
-                        Hello! I am Astuti Swastika. I build applications and responsive web interfaces
-                        that focus on performance, readability, and makes a real-world impact in a long term.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="btn" href="#projects">See My Work</a>
-                        <a class="btn btn-ghost" href="/cv">Download CV</a>
+    <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Hi, I&rsquo;m Astuti Swastika</p>
+                <h1 id="hero-title">Software developer building <em>practical, reliable</em> digital solutions.</h1>
+                <p class="hero-intro">
+                    I'm interested in backend development, databases and responsive web applications &mdash;
+                    the logic and data that make software dependable, and the interfaces that make it
+                    easy to use.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projects">View My Work</a>
+                    <a class="btn btn-secondary" href="/cv" download="Astuti-Swastika-CV.pdf">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+                        Download CV <span class="visually-hidden">(PDF)</span>
+                    </a>
+                </div>
+            </div>
+            <figure class="hero-photo">
+                <div class="photo-frame">
+                    <img src="/my-photo.jpg" width="900" height="1600" alt="Portrait of Astuti Swastika" />
+                </div>
+                <figcaption>
+                    <span class="caption-name">Astuti Swastika</span>
+                    <span class="caption-role">Backend &middot; Databases &middot; Web</span>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="code-showcase" aria-labelledby="code-title">
+            <h2 class="visually-hidden" id="code-title">About me, written as a Java class</h2>
+            <div class="code-window">
+                <div class="code-toolbar">
+                    <span class="window-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span class="code-tab">
+                        <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10.5h1.5a2.5 2.5 0 0 1 0 5H16M8.5 3c0 1.5 1.5 1.5 1.5 3M12.5 3c0 1.5 1.5 1.5 1.5 3"/></svg>
+                        Astuti.java
+                    </span>
+                    <button class="run-btn" type="button" aria-controls="code-console">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+                        Run
+                    </button>
+                </div>
+                <div class="code-body">
+                    <pre class="code-block" id="code-block"><code><span class="code-line"><span class="tok-kw">public class</span> <span class="tok-ty">Astuti</span> <span class="tok-kw">implements</span> <span class="tok-ty">Developer</span> {</span>
+                        <span class="code-line"></span>
+                        <span class="code-line">    <span class="tok-ty">String</span> role   = <span class="tok-str">"Software Developer"</span>;</span>
+                        <span class="code-line">    <span class="tok-ty">String</span> school = <span class="tok-str">"University of the South Pacific"</span>;</span>
+                        <span class="code-line">    <span class="tok-ty">String</span>[] focus = { <span class="tok-str">"Backend"</span>, <span class="tok-str">"Databases"</span>, <span class="tok-str">"Web"</span> };</span>
+                        <span class="code-line">    <span class="tok-kw">boolean</span> learning = <span class="tok-lit">true</span>;</span>
+                        <span class="code-line"></span>
+                        <span class="code-line">    <span class="tok-ann">@Override</span></span>
+                        <span class="code-line">    <span class="tok-kw">public</span> <span class="tok-ty">String</span> <span class="tok-fn">build</span>() {</span>
+                        <span class="code-line">        <span class="tok-kw">return</span> <span class="tok-str">"Practical, reliable digital solutions"</span>;</span>
+                        <span class="code-line">    }</span>
+                        <span class="code-line">}</span></code></pre>
+                    <div class="code-console" id="code-console" role="log" aria-live="polite" aria-label="Program output">
+                        <p class="console-line console-muted">Press <strong>Run</strong> to execute Astuti.java</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="panel">
-            <h2>About Me</h2>
-            <p>
-                  I am a developer who enjoys turning ideas into reliable. I strongly believe that just like life is a journey where backend knowledge and logic plays a crucial role for a person to succeed, likewise, strong backend in software development is essential for building robust applications.I am a very passionate learner and am always eager to explore and master new programming languages and technologies.
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">01</p>
+                <h2 id="about-title">About Me</h2>
+            </div>
+            <div class="about-layout">
+                <div class="about-text">
+                    <p>
+                        I'm a software developer who enjoys turning ideas into reliable, working applications.
+                        I'm most drawn to the backend: the logic, data and structure that the rest of an
+                        application depends on. I see it the same way I see life &mdash; the foundations
+                        people don't always notice are what allow everything else to succeed, so they are
+                        worth building carefully.
+                    </p>
+                    <p>
+                        I'm in the final semester of a Bachelor of Software Engineering at The University of
+                        the South Pacific. My internship as a Plant Logistics Intern at Natural Waters of Viti Ltd showed me how
+                        technology supports real operations. I worked with standard operating procedure (SOP)
+                        documentation, used an Oracle database in a workplace setting and was exposed to the
+                        technology used on the production side of the business.
+                    </p>
+                    <p>
+                        I like learning new programming languages and technologies, and I aim to understand them
+                        properly rather than just enough to get by. Going forward, I want to keep growing in
+                        backend development, database-driven systems and responsive web applications.
+                    </p>
+                </div>
+                <blockquote class="about-quote">
+                    <p>&ldquo;In order to break limitations, one has to cross the extents of imagination.&rdquo;</p>
+                    <footer>&mdash; A thought I try to work by</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section" id="what-i-do" aria-labelledby="what-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">02</p>
+                <h2 id="what-title">What I Do</h2>
+            </div>
+            <p class="section-lead">The kinds of work I focus on, based on my projects, studies, internship and skills.</p>
+            <ul class="focus-grid">
+                <li class="focus-card">
+                    <svg class="focus-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg>
+                    <h3>Backend application development</h3>
+                    <p>Building application logic with Java, Spring Boot and Node.js, including admin features, notifications and secure password hashing with bcrypt.</p>
+                </li>
+                <li class="focus-card">
+                    <svg class="focus-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.5"/><path d="M4.5 5.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6M4.5 11.5v6c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5v-6"/></svg>
+                    <h3>Database-driven systems</h3>
+                    <p>Working with MySQL, PostgreSQL and Oracle, including PostgreSQL in a group banking app and hands-on Oracle use during my internship.</p>
+                </li>
+                <li class="focus-card">
+                    <svg class="focus-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="14" height="11" rx="1.5"/><rect x="15" y="9" width="6.5" height="11" rx="1.2"/><path d="M6 19h6"/></svg>
+                    <h3>Web and mobile interfaces</h3>
+                    <p>Designing screens in Figma and building interfaces with HTML5, CSS, JavaScript, React and React Native that work across devices.</p>
+                </li>
+                <li class="focus-card">
+                    <svg class="focus-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11m0 0-3-3m3 3-3 3M20 17H9m0 0 3-3m-3 3 3 3"/></svg>
+                    <h3>Improving manual business processes</h3>
+                    <p>Building systems that move manual, paper-based tasks into software, such as a leave management system and an offline farm-records app.</p>
+                </li>
+                <li class="focus-card">
+                    <svg class="focus-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>
+                    <h3>Technical documentation and reliable workflows</h3>
+                    <p>Understanding and following structured processes, built on my exposure to SOP documentation in a production environment.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">03</p>
+                <h2 id="projects-title">Featured Projects</h2>
+            </div>
+            <div class="project-grid">
+                <article class="project-card">
+                    <img class="project-image project-image--centre" src="/images/pasifika-farm.jpg" width="846" height="476" loading="lazy" alt="PasifikaFarm splash screen showing a blue logo and the tagline &ldquo;Record it. Manage it. Grow it.&rdquo;" />
+                    <div class="project-body">
+                        <p class="project-meta">Client project &middot; Industrial Experience Practice (IEP) <span class="status-badge">In progress</span></p>
+                        <h3>PasifikaFarm</h3>
+                        <p class="project-purpose">An offline farming app built for a client, helping Pacific farmers record and track their farm activities and improve farming efficiency without an internet connection.</p>
+                        <p class="project-role"><strong>My role:</strong> UI designer for the app, built the farm type management feature and worked on backend development.</p>
+                        <h4 class="project-subheading">Key features</h4>
+                        <ul class="project-features">
+                            <li>Works fully offline, with no online server</li>
+                            <li>Recording and tracking of farm activities</li>
+                            <li>Management of different farm types</li>
+                        </ul>
+                        <h4 class="visually-hidden">Technologies</h4>
+                        <ul class="tag-list">
+                            <li>React Native</li>
+                            <li>Figma</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="/images/bank.png" width="1600" height="910" loading="lazy" alt="Screenshot of the online banking dashboard showing total balance, quick actions, exchange rates and an empty accounts list" />
+                    <div class="project-body">
+                        <p class="project-meta">Group project &middot; CS415 Advanced Software Engineering</p>
+                        <h3>Bank of Fiji</h3>
+                        <p class="project-purpose">A web and mobile banking application that lets customers register for an online account and use banking services from home.</p>
+                        <p class="project-role"><strong>My role:</strong> Built the chatbot for the mobile app, helped fix notifications and added business account support.</p>
+                        <h4 class="project-subheading">Key features</h4>
+                        <ul class="project-features">
+                            <li>Online account registration and account opening</li>
+                            <li>Transfers, bill payments and statements</li>
+                            <li>Loans, savings goals and analytics</li>
+                            <li>Currency view in FJD, USD, AUD, NZD and GBP, with exchange rates</li>
+                        </ul>
+                        <h4 class="visually-hidden">Technologies</h4>
+                        <ul class="tag-list">
+                            <li>JavaScript</li>
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>HTML</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                        <p class="project-note">A university project, not affiliated with or built for Bank of Fiji.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="/images/leave-system.png" width="1878" height="918" loading="lazy" alt="Screenshot of the SiteLeave manager dashboard showing request totals, emergency requests, appeals and management actions" />
+                    <div class="project-body">
+                        <p class="project-meta">Team project &middot; IS314 Computing Project</p>
+                        <h3>Leave Management System</h3>
+                        <p class="project-purpose">A customised web-based leave application system that allows a company to move its leave process from manual paperwork to an online system.</p>
+                        <p class="project-role"><strong>My role:</strong> Built the admin side of the system, implemented secure password hashing with bcrypt and worked on notifications.</p>
+                        <h4 class="project-subheading">Key features</h4>
+                        <ul class="project-features">
+                            <li>Online leave applications</li>
+                            <li>Manager dashboard to review all leave requests</li>
+                            <li>Separate handling of emergency requests and appeals</li>
+                            <li>Company-wide leave history</li>
+                        </ul>
+                        <h4 class="visually-hidden">Technologies</h4>
+                        <ul class="tag-list">
+                            <li>Spring Boot</li>
+                            <li>Python</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="/images/air-writing.jpg" width="580" height="326" loading="lazy" alt="Air Writing System webcam window tracking a raised hand, with on-screen drawing status and three people in view" />
+                    <div class="project-body">
+                        <p class="project-meta">Research project &middot; CS412 Artificial Intelligence <span class="status-badge">Team lead</span></p>
+                        <h3>Air Writing System</h3>
+                        <p class="project-purpose">A research project comparing how efficiently different AI models recognise letters written in the air, using a CNN model as the baseline.</p>
+                        <p class="project-role"><strong>My role:</strong> Led a two-person team and built the system with my teammate. I tested it on two datasets, one with added noise and one without, to compare how it behaved.</p>
+                        <h4 class="project-subheading">Key features</h4>
+                        <ul class="project-features">
+                            <li>Comparison of CNN, LSTM, SVM and hybrid CNN + LSTM models</li>
+                            <li>Real-time hand gesture detection from a webcam with MediaPipe</li>
+                            <li>Live letter prediction with confidence scores</li>
+                            <li>Testing with clean and noisy datasets</li>
+                        </ul>
+                        <h4 class="visually-hidden">Technologies</h4>
+                        <ul class="tag-list">
+                            <li>Python</li>
+                            <li>MediaPipe</li>
+                            <li>CNN</li>
+                            <li>LSTM</li>
+                            <li>SVM</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="/images/eportfolio.png" width="1402" height="692" loading="lazy" alt="Screenshot of the ePortfolio home page showing the headline, profile photo and View My Work and Download CV buttons" />
+                    <div class="project-body">
+                        <p class="project-meta">Personal project</p>
+                        <h3>My ePortfolio</h3>
+                        <p class="project-purpose">A personal website that presents my background, experience, projects and skills in one place.</p>
+                        <p class="project-role"><strong>My role:</strong> Designed and built the site, from the Java server to the page layout and styling.</p>
+                        <h4 class="project-subheading">Key features</h4>
+                        <ul class="project-features">
+                            <li>Java endpoint that serves my CV as a PDF download</li>
+                            <li>Responsive layout for desktop, tablet and mobile</li>
+                            <li>Deployed online with Netlify</li>
+                        </ul>
+                        <h4 class="visually-hidden">Technologies</h4>
+                        <ul class="tag-list">
+                            <li>Java 17</li>
+                            <li>Maven</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Netlify</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://astuti-swastika.netlify.app/" target="_blank" rel="noopener noreferrer">View project<span class="visually-hidden"> (My ePortfolio live site, opens in a new tab)</span></a>
+                            <a href="https://github.com/Swastika-A/My-eportfolio" target="_blank" rel="noopener noreferrer">View source<span class="visually-hidden"> (My ePortfolio on GitHub, opens in a new tab)</span></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <p class="section-more">
+                <a class="btn btn-secondary" href="https://github.com/Swastika-A" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                    See more of my work on GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+                </a>
             </p>
         </section>
 
-        <section id="experience" class="panel">
-            <h2>Work Experience</h2>
-            <div class="experience-list">
-                <article class="experience-item">
-                    <h3>Plant Logistics Intern</h3>
-                    <p class="experience-meta">Natural Waters of Viti Ltd | December 2025 - February 2026</p>
-                    <p>During this internship i was exposed to more on the documentation side of the company product (the SOPs), gained hands on experience with using oracle database in work field and worked with more advanced technologies in production side.</p>
-                </article>
-                
+        <section class="section" id="experience" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">04</p>
+                <h2 id="experience-title">Experience</h2>
             </div>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <article>
+                        <p class="timeline-date"><time datetime="2025-12">December 2025</time> &ndash; <time datetime="2026-02">February 2026</time></p>
+                        <h3>Plant Logistics Intern</h3>
+                        <p class="timeline-org">Natural Waters of Viti Ltd</p>
+                        <ul class="timeline-points">
+                            <li>Worked with the documentation side of the company's products, including standard operating procedures (SOPs).</li>
+                            <li>Gained hands-on experience using an Oracle database in a workplace setting.</li>
+                            <li>Was exposed to more advanced technologies used in production-related processes.</li>
+                        </ul>
+                        <h4 class="visually-hidden">Areas of exposure</h4>
+                        <ul class="tag-list">
+                            <li>SOP documentation</li>
+                            <li>Oracle Database</li>
+                            <li>Production processes</li>
+                        </ul>
+                    </article>
+                </li>
+            </ol>
         </section>
 
-        <section id="projects" class="panel">
-            <h2>Featured Projects</h2>
-            <div class="grid">
-                <article class="card">
-                    <img class="project-thumb" src="/images/eportfolio.png" alt="My E-Portfolio screenshot">
-                    <h3>My E-Portfolio</h3>
-                    <p>A detailed visual representation of my bio-data and professional information using html and css.</p>
-                </article>
-                <article class="card">
-                    <img class="project-thumb" src="/images/leave-system.png" alt="Leave Management System screenshot">
-                    <h3>Leave Management System</h3>
-                    <p>A customized leave application web-based application that is viable for company to move from manual leave application operation to online system.</p>
-                </article>
-                <article class="card">
-                    <img class="project-thumb" src="/images/bank.png" alt="Bank of Fiji screenshot">
-                    <h3>Bank of Fiji</h3>
-                    <p>A banking app (web-based) allowing customers to register online accounts and enjoy all banking services online from their comfort zone.</p>
-                </article>
+        <section class="section" id="education" aria-labelledby="education-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">05</p>
+                <h2 id="education-title">Education</h2>
             </div>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <article>
+                        <p class="timeline-date"><time datetime="2023">2023</time> &ndash; <time datetime="2026">2026</time> <span class="status-badge">Final semester</span></p>
+                        <h3>Bachelor of Software Engineering</h3>
+                        <p class="timeline-org">The University of the South Pacific</p>
+                        <p class="timeline-note">Currently completing my final semester, with the degree due to be completed in 2026. This includes an Industrial Experience Practice (IEP) project, where I am helping build an offline farming app for a client.</p>
+                        <h4 class="project-subheading timeline-subheading">Key courses</h4>
+                        <ul class="tag-list">
+                            <li>Software Design and Implementation</li>
+                            <li>Advanced Software Engineering</li>
+                            <li>Database Management Systems</li>
+                            <li>Web Applications Development</li>
+                            <li>Requirements Engineering</li>
+                            <li>Software Quality Assurance and Testing</li>
+                            <li>Cloud Computing</li>
+                            <li>Artificial Intelligence</li>
+                        </ul>
+                        <details class="course-list">
+                            <summary>Show all 15 courses</summary>
+                            <ul>
+                                <li><span class="course-code">CS211</span> Computer Organisation</li>
+                                <li><span class="course-code">CS214</span> Design and Analysis of Algorithms</li>
+                                <li><span class="course-code">CS219</span> Cloud Computing</li>
+                                <li><span class="course-code">CS230</span> Requirements Engineering</li>
+                                <li><span class="course-code">CS241</span> Software Design and Implementation</li>
+                                <li><span class="course-code">CS310</span> Operating Systems</li>
+                                <li><span class="course-code">CS341</span> Software Quality Assurance and Testing</li>
+                                <li><span class="course-code">CS352</span> Cybersecurity Principles</li>
+                                <li><span class="course-code">CS412</span> Artificial Intelligence</li>
+                                <li><span class="course-code">CS415</span> Advanced Software Engineering</li>
+                                <li><span class="course-code">IS221</span> Web Applications Development</li>
+                                <li><span class="course-code">IS222</span> Database Management Systems</li>
+                                <li><span class="course-code">IS314</span> Computing Project</li>
+                                <li><span class="course-code">IS328</span> Data Mining</li>
+                                <li><span class="course-code">IS333</span> Project Management</li>
+                            </ul>
+                        </details>
+                    </article>
+                </li>
+                <li class="timeline-item">
+                    <article>
+                        <p class="timeline-date"><time datetime="2020">2020</time> &ndash; <time datetime="2022">2022</time></p>
+                        <h3>Secondary Education (Years 11&ndash;13)</h3>
+                        <p class="timeline-org">Balata College</p>
+                        <ul class="timeline-points">
+                            <li>Fiji Year 13 Certificate Examination: 360/400 (2022)</li>
+                            <li>Fiji Year 12 Certificate Examination: 355/400 (2021)</li>
+                            <li>First in class in Year 11, awarded a trophy (2020)</li>
+                            <li>Commonwealth Essay Competition: Bronze Award (2021 and 2022)</li>
+                        </ul>
+                    </article>
+                </li>
+                <li class="timeline-item">
+                    <article>
+                        <p class="timeline-date"><time datetime="2018">2018</time> &ndash; <time datetime="2019">2019</time></p>
+                        <h3>Secondary Education (Years 9&ndash;10)</h3>
+                        <p class="timeline-org">Tavua College</p>
+                        <ul class="timeline-points">
+                            <li>Fiji Year 10 Certificate Examination: 581/700 (2019)</li>
+                            <li>Chemical Society of the South Pacific Chem Quiz: Credit Certificate (2019)</li>
+                        </ul>
+                    </article>
+                </li>
+            </ol>
         </section>
 
-        
-
-        <section id="skills" class="panel">
-            <h2>Skills</h2>
-            <h3>Programming Languages and Frameworks</h3>
-            <ul class="skills">
-                <li>Java</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>HTML5</li>
-                <li>C++</li>
-                <li>Python</li>
-                <li>Node.js</li>
-                <li>React</li>
-                <li>SpringBoot</li>
-            </ul>
-            <h3>Databases</h3>
-            <ul class="skills">
-                <li>MySQL</li>
-                <li>PostgreSQL</li>
-                <li>Oracle</li>
-
-            </ul>
+        <section class="section" id="skills" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">06</p>
+                <h2 id="skills-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3>Backend and programming</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>Spring Boot</li>
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Frontend and mobile</h3>
+                    <ul class="skill-list">
+                        <li>HTML5</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>React Native</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>PostgreSQL</li>
+                        <li>Oracle</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Tools and practices</h3>
+                    <ul class="skill-list">
+                        <li>Git and GitHub</li>
+                        <li>Maven</li>
+                        <li>Figma</li>
+                        <li>Netlify</li>
+                        <li>SOP documentation</li>
+                    </ul>
+                </div>
+            </div>
+            <!--
+                Currently learning: uncomment and fill in when ready.
+            <div class="learning">
+                <h3>Currently learning</h3>
+                <ul class="skill-list">
+                    <li>Technology or topic</li>
+                </ul>
+            </div>
+            -->
         </section>
 
-        <section id="contact" class="panel">
-            <h2>Contact</h2>
-            <p>Mobile Number: +679 9851661</p>
-            <p>Email: <a href="mailto:astuti.swastika2021@gmail.com">astuti.swastika2021@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/Swastika-A" target="_blank" rel="noopener noreferrer">https://github.com/Swastika-A</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/astuti-swastika-83512824b/" target="_blank" rel="noopener noreferrer">linkedin.com/in/astuti-swastika-83512824b</a></p>
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="section-heading">
+                <p class="section-index" aria-hidden="true">07</p>
+                <h2 id="contact-title">Contact</h2>
+            </div>
+            <p class="section-lead">I'm happy to talk about opportunities, projects or anything on this page. Email is the best way to reach me.</p>
+            <ul class="contact-grid">
+                <li>
+                    <a class="contact-card" href="mailto:astuti.swastika2021@gmail.com">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">astuti.swastika2021<wbr />@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="contact-card" href="tel:+6799851661">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.5l1.8 4.5-2.3 1.5a11 11 0 0 0 6.5 6.5l1.5-2.3 4.5 1.8V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
+                        <span class="contact-label">Mobile</span>
+                        <span class="contact-value">+679&nbsp;985&nbsp;1661</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="contact-card" href="https://github.com/Swastika-A" target="_blank" rel="noopener noreferrer">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">Swastika-A<span class="visually-hidden"> (opens in a new tab)</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="contact-card" href="https://www.linkedin.com/in/astuti-swastika-83512824b/" target="_blank" rel="noopener noreferrer">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 10.5V16M8 7.5v.01M12 16v-5.5M12 13a2.5 2.5 0 0 1 5 0v3"/></svg>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">Astuti Swastika<span class="visually-hidden"> (opens in a new tab)</span></span>
+                    </a>
+                </li>
+            </ul>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-name">Astuti Swastika</p>
+                <p class="footer-role">Software Developer</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="https://github.com/Swastika-A" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+                <li><a href="https://www.linkedin.com/in/astuti-swastika-83512824b/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+                <li><a href="mailto:astuti.swastika2021@gmail.com">Email</a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 Astuti Swastika. All rights reserved.</p>
+                <p class="footer-built">
+                    Hand-built with Java&nbsp;17, Maven and plain HTML, CSS &amp; JavaScript &mdash; no frameworks.
+                    <a href="https://github.com/Swastika-A/My-eportfolio" target="_blank" rel="noopener noreferrer">View source<span class="visually-hidden"> on GitHub (opens in a new tab)</span></a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

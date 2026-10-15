@@ -1,28 +1,32 @@
 # My ePortfolio (Java + CSS)
 URL to access: https://astuti-swastika.netlify.app/
-This is a Java-powered ePortfolio website with a custom CSS design.
+
+Personal portfolio website for Astuti Swastika, served by a small Java application with a custom HTML and CSS design.
 
 ## Tech Stack
 
 - Java 17
 - Maven
 - Embedded Java HTTP server (`com.sun.net.httpserver.HttpServer`)
-- HTML + CSS
+- HTML, CSS and a small vanilla JavaScript file (no frameworks or dependencies)
+- Netlify for hosting
 
 ## Project Structure
 
-- `src/main/java/com/eportfolio/App.java` -> Starts the web server.
+- `src/main/java/com/eportfolio/App.java` -> Starts the web server and serves the page, stylesheet, images and CV.
 - `src/main/resources/public/index.html` -> Portfolio content.
-- `src/main/resources/public/styles.css` -> Site styling.
-- `src/main/resources/public/script.js` -> Contact form submission logic.
-- `src/main/resources/public/cv.txt` -> Downloadable CV file (served from `/cv`).
+- `src/main/resources/public/styles.css` -> Site styling (dark "liquid glass" theme).
+- `src/main/resources/public/script.js` -> Greeting splash screen, scroll reveals, the self-typing Java code card and the cursor spotlight.
+- `src/main/resources/public/images/` -> Project screenshots.
+- `src/main/resources/public/cv.pdf` -> Downloadable CV (served from `/cv`).
 
-## Features Added
+## Features
 
-- `Download CV` button in hero section.
-- Java endpoint `GET /cv` to download CV as an attachment.
-- Contact form UI in the contact section.
-- Java endpoint `POST /contact` that validates and returns JSON.
+- Sections for About, What I Do, Projects, Experience, Skills and Contact.
+- Responsive layout for desktop, tablet and mobile, with support for reduced-motion preferences.
+- Greeting splash screen ("Hello", "Bula", "नमस्ते" and more) on every page load, skippable with a tap or any key, and turned off for reduced motion.
+- `Download CV` button in the hero section.
+- Java endpoint `GET /cv` that downloads the CV as `Astuti-Swastika-CV.pdf`.
 
 ## Run Locally
 
@@ -39,13 +43,10 @@ mvn compile exec:java
 http://localhost:8080
 ```
 
-## Customize Your Details
+## Deployment
 
-Edit `src/main/resources/public/index.html` and replace:
+Netlify publishes `src/main/resources/public` directly as a static site (see `netlify.toml`); no Maven build runs there. Every push to `main` updates the live site.
 
-- `Your Name`
-- `yourname@example.com`
-- `github.com/yourname`
-- `linkedin.com/in/yourname`
+## Adding New Files
 
-You can also update project cards and skills to match your real experience.
+The Java server only serves files that are registered in `App.java`. If you add a new image or other asset, add a matching `server.createContext(...)` line so it also works locally.
